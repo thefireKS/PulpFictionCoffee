@@ -28,16 +28,9 @@ public class Movement : MonoBehaviour
     {
         _move = new Vector2(Input.GetAxis("Horizontal"), 0);
         PlayerMovement();
-        PlayerAttack();
         RightFacing();
         Jump();
         PlatformLayerIgnore();
-    }
-
-    private void PlayerAttack()
-    {
-        if(Input.GetKeyDown(KeyCode.S))
-            _animator.SetTrigger(Attack);
     }
 
     private void Jump()
