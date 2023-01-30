@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform gunPoint;
     [SerializeField] private GameObject ammo;
 
-    [SerializeField] private int maxAmmo;
+    public int maxAmmo;
     public int currentAmmo;
 
     private bool _isReloading;
