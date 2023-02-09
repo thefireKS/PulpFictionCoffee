@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
 
 public class EnemyCore : MonoBehaviour
 {
     [SerializeField] private int maxHitPoints;
+    [SerializeField] private int scoreAmount;
     private int _currentHitPoints;
 
+    public static Action<int> giveScore;
     private void Start()
     {
         gameObject.tag = "Enemy";
@@ -19,6 +22,9 @@ public class EnemyCore : MonoBehaviour
 
     private void CheckHealth()
     {
-        if(_currentHitPoints <= 0) Destroy(gameObject);
+        if (_currentHitPoints > 0)
+            return;
+        giveScore?.Invoke(scoreAmount);
+        Destroy(gameObject);
     }
 }

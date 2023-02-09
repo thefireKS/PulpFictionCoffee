@@ -35,7 +35,7 @@ public class Gun : MonoBehaviour
     private bool CanShoot() => !_isReloading && _timeSinceLastShot > 1f / (fireRate / 60f);
     private void Shoot()
     {
-        if(currentAmmo < 0) return;
+        if(currentAmmo <= 0) return;
         if(!CanShoot()) return;
         _animator.SetTrigger(Attack);
         Quaternion ammoRotation = transform.localScale.x > 0 ? transform.rotation : new Quaternion(0f, 0f, 180f,0f);
