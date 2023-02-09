@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -27,15 +28,20 @@ public class Movement : MonoBehaviour
     void Update()
     {
         _move = new Vector2(Input.GetAxis("Horizontal"), 0);
-        PlayerMovement();
+        Jump();
         RightFacing();
         Jump();
         PlatformLayerIgnore();
     }
 
+    private void FixedUpdate()
+    {
+        PlayerMovement();
+    }
+
     private void Jump()
     {
-        if((Input.GetKeyDown(KeyCode.Space) || Input.GetAxisRaw("Vertical") > 0) && GroundCheck())
+        if(Input.GetKeyDown(KeyCode.Space) && GroundCheck())
             _playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
@@ -67,7 +73,7 @@ public class Movement : MonoBehaviour
         var downCenter = bounds.min + new Vector3(bounds.center.x, 0, 0);
         RaycastHit2D raycastHit2D = Physics2D.Raycast(downCenter, Vector2.down, 0.03f, LayerMask.GetMask("Ground"));
         var rayColor = raycastHit2D.collider ? Color.green : Color.red;
-        Debug.DrawRay(downCenter, Vector3.down * 0.03f,rayColor);
+        Debug.DrawRay(downCenter, Vector2.down * 0.03f,rayColor);
         return raycastHit2D.collider;
     }
 }
