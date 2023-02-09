@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,7 +17,9 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private int fireRate;
     private float _timeSinceLastShot;
-    
+
+    public static Action ammoCounterUpdateAction; 
+
     private static readonly int Attack = Animator.StringToHash("Attack");
 
     void Start()
@@ -26,6 +29,7 @@ public class Gun : MonoBehaviour
         
         // load magazine on Start
         currentAmmo = maxAmmo;
+        ammoCounterUpdateAction?.Invoke();
         
         // add actions
         InputManager.ShootInput += Shoot;
@@ -42,6 +46,7 @@ public class Gun : MonoBehaviour
         Instantiate(ammo, gunPoint.position, ammoRotation);
         _timeSinceLastShot = 0;
         currentAmmo--;
+        ammoCounterUpdateAction?.Invoke();
     }
 
     private void Reload()
@@ -54,6 +59,7 @@ public class Gun : MonoBehaviour
         _isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
+        ammoCounterUpdateAction?.Invoke();
         _isReloading = false;
     }
 
