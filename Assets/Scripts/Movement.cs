@@ -1,4 +1,5 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -10,38 +11,36 @@ public class Movement : MonoBehaviour
     private Animator _animator;
     private Collider2D _collider2D;
 
-    private int _playerLayer, _groundLayer;
+    private int _platformLayer;
+
+    private GameObject currentOneWayPlatform;
     
     private Vector2 _move;
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int IsRunning = Animator.StringToHash("IsRunning");
+
+    private Coroutine currentFallingOffCoroutine;
 
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _collider2D = GetComponent<Collider2D>();
-
-        _playerLayer = LayerMask.NameToLayer("Player");
-        _groundLayer = LayerMask.NameToLayer("Ground");
+        
+        _platformLayer = LayerMask.NameToLayer("Platform");
     }
     void Update()
     {
         _move = new Vector2(Input.GetAxis("Horizontal"), 0);
-        Jump();
+        PlayerMovement();
         RightFacing();
         Jump();
         PlatformLayerIgnore();
     }
 
-    private void FixedUpdate()
-    {
-        PlayerMovement();
-    }
-
     private void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && GroundCheck())
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetAxisRaw("Vertical") > 0) && GroundCheck())
             _playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
@@ -63,17 +62,41 @@ public class Movement : MonoBehaviour
 
     private void PlatformLayerIgnore()
     {
-        var velocityY = _playerRb.velocity.y;
-        Physics2D.IgnoreLayerCollision(_playerLayer, _groundLayer, velocityY > 0);
+        if (Input.GetAxisRaw("Vertical") < 0 && currentOneWayPlatform != null && currentFallingOffCoroutine == null)
+            currentFallingOffCoroutine = StartCoroutine(DisableCollision());
     }
     
     private bool GroundCheck()
     {
         var bounds = _collider2D.bounds;
-        var downCenter = bounds.min + new Vector3(bounds.center.x, 0, 0);
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(downCenter, Vector2.down, 0.03f, LayerMask.GetMask("Ground"));
+        var downCenter = bounds.min + new Vector3(bounds.extents.x, 0, 0);
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(downCenter, Vector2.down, 0.03f, LayerMask.GetMask("Ground", "Platform"));
         var rayColor = raycastHit2D.collider ? Color.green : Color.red;
-        Debug.DrawRay(downCenter, Vector2.down * 0.03f,rayColor);
+        Debug.DrawRay(downCenter, Vector3.down * 0.05f,rayColor);
         return raycastHit2D.collider;
+    }
+
+    private IEnumerator DisableCollision()
+    {
+        BoxCollider2D platformCollider = currentOneWayPlatform.GetComponent<BoxCollider2D>();
+        Physics2D.IgnoreCollision(_collider2D, platformCollider);
+        yield return new WaitForSeconds(1f);
+        Physics2D.IgnoreCollision(_collider2D, platformCollider, false);
+        currentFallingOffCoroutine = null;
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == _platformLayer)
+        {
+            currentOneWayPlatform = collision.gameObject;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == _platformLayer)
+        {
+            currentOneWayPlatform = null;
+        }
     }
 }
