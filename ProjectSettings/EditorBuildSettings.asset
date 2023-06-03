@@ -10,8 +10,8 @@ EditorBuildSettings:
     guid: 54fb54ed96ba5e44aa7b966121f40061
   - enabled: 1
     path: Assets/Scenes/Coffee/Jools.unity
-    guid: 66ad886c80772e1479698fa33dd71608
+    guid: ec27ee9c0d1787445aa63a8dfd8f7497
   - enabled: 1
     path: Assets/Scenes/Coffee/Wolf.unity
-    guid: 526031e592484c24fa9cc0ffb83e6566
+    guid: 2fa207bf7a28e9a4096ae0a7b8cab12a
   m_configObjects: {}
