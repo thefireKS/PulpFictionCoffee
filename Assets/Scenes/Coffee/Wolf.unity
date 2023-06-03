@@ -510,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146445878}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8500004, y: -4.63, z: 0}
+  m_LocalPosition: {x: 3.85, y: -4.63, z: 0}
   m_LocalScale: {x: 2.1, y: 2.1, z: 2.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 6
-  defaultPosition: {fileID: 814979444}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 324818036}
   doOnAction:
     m_PersistentCalls:
@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 6
-  defaultPosition: {fileID: 1902300593}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 324818036}
   doOnAction:
     m_PersistentCalls:
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 3
-  defaultPosition: {fileID: 262814236}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 62241190}
   doOnAction:
     m_PersistentCalls:
@@ -2739,7 +2739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 0
-  defaultPosition: {fileID: 0}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 0}
   doOnAction:
     m_PersistentCalls:
@@ -2860,7 +2860,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1084603452
 Transform:
   m_ObjectHideFlags: 0
@@ -2890,22 +2890,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 5
-  defaultPosition: {fileID: 1211502836}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 1365925810}
   doOnAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1084603457}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: CoffeePouring
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 862967003}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
@@ -3038,7 +3038,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084603451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 37459b58283ff2c4c985bad38dddb1a6, type: 2}
   m_CullingMode: 0
@@ -3335,7 +3335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 1
-  defaultPosition: {fileID: 1427056370}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 1998400373}
   doOnAction:
     m_PersistentCalls:
@@ -4066,7 +4066,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412709382}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c170e4066d07a4c4ba2a00e95f0ef4a1, type: 2}
   m_CullingMode: 0
@@ -4832,7 +4832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 6
-  defaultPosition: {fileID: 814979444}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 324818036}
   doOnAction:
     m_PersistentCalls:
@@ -4956,7 +4956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 6
-  defaultPosition: {fileID: 814979444}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 324818036}
   doOnAction:
     m_PersistentCalls:
@@ -5212,7 +5212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 6
-  defaultPosition: {fileID: 814979444}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 324818036}
   doOnAction:
     m_PersistentCalls:
@@ -5560,7 +5560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 6
-  defaultPosition: {fileID: 103848342}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 324818036}
   doOnAction:
     m_PersistentCalls:
@@ -5657,34 +5657,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 0
-  defaultPosition: {fileID: 1844959470}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 645042722}
   doOnAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1941692860}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Pouring
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1412709386}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Pouring
-          m_BoolArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1941692856}
         m_TargetAssemblyTypeName: DraggingSystem, Assembly-CSharp
@@ -5743,7 +5743,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941692855}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 893635ab58f16be42bd5053975ce78e7, type: 2}
   m_CullingMode: 0
@@ -5928,7 +5928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 6
-  defaultPosition: {fileID: 814979444}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 324818036}
   doOnAction:
     m_PersistentCalls:
@@ -6278,7 +6278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 4
-  defaultPosition: {fileID: 109126722}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 1784161277}
   doOnAction:
     m_PersistentCalls:
@@ -6438,7 +6438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepToAction: 2
-  defaultPosition: {fileID: 1427056370}
+  defaultPosition: {x: 0, y: 0, z: 0}
   specifiedTriggerZone: {fileID: 1288237589}
   doOnAction:
     m_PersistentCalls:
