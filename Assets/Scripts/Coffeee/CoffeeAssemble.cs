@@ -36,5 +36,15 @@ public class CoffeeAssemble : MonoBehaviour
         public bool Milk;
         public bool Cream;
         public int Sugar = 0;
+
+        public static bool operator !=(CoffeeExtras ce1, CoffeeExtras ce2) {
+            if (ce1.Milk == ce2.Milk && ce1.Cream == ce2.Cream && ce1.Sugar == ce2.Sugar) return false;
+            else return true;
+        }
+
+        public static bool operator ==(CoffeeExtras ce1, CoffeeExtras ce2) {
+            if (ce1.Milk == ce2.Milk && ce1.Cream == ce2.Cream && ce1.Sugar == ce2.Sugar) return true;
+            else return false;
+        }
     }
 }

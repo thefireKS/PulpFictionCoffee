@@ -5,7 +5,7 @@ public class DraggingSystem : MonoBehaviour
 {
     [SerializeField] private CoffeeAssemble.AssembleStep stepToAction;
     [Space(5)]
-    [SerializeField] private Transform defaultPosition;
+    [SerializeField] private Vector3 defaultPosition;
     [SerializeField] private GameObject specifiedTriggerZone;
     [Space(5)]
     [SerializeField] private UnityEvent doOnAction;
@@ -16,6 +16,7 @@ public class DraggingSystem : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
+        defaultPosition = this.transform.position;
     }
 
     private void OnMouseDown()
@@ -33,7 +34,7 @@ public class DraggingSystem : MonoBehaviour
     private void OnMouseUp()
     {
         if (!actionIsDone)
-            transform.position = defaultPosition.position;
+            transform.position = defaultPosition;
     }
 
     private Vector3 GetMousePosition()
@@ -64,7 +65,7 @@ public class DraggingSystem : MonoBehaviour
     public void DoneAction()
     {
         actionIsDone = false;
-        transform.position = defaultPosition.position;
+        transform.position = defaultPosition;
     }
 
     public void AddMilk()
